@@ -6,10 +6,9 @@ pipeline {
     }
     
     environment {
-        registryUrl="demoossacr.azurecr.io"
+        registryUrl = "demoossacr.azurecr.io"
         registry = "demoossacr.azurecr.io/sampleapp"
         registryCredential = 'ACR'
-        aksCredential = 'AKS'
         dockerImage = ''
     }
     stages {
