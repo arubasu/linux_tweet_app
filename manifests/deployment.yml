@@ -13,7 +13,8 @@ spec:
         app: sampleapp 
     spec:
       containers:
-        - name: sampleapp 
-          image: demoossacr.azurecr.io/sampleapp
+        - name: sampleapp
+          image: demoossacr.azurecr.io/sampleapp:latest
+          imagePullPolicy: Always
           ports:
           - containerPort: 80
