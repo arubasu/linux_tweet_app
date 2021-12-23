@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: sampleapp 
-          image: arubasudemo.azurecr.io/sampleapp
+          image: demoossacr.azurecr.io/sampleapp
           ports:
           - containerPort: 80
