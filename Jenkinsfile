@@ -46,11 +46,19 @@ pipeline {
         
         stage('Deploy to k8s') {
             steps{
-                /* We have copied the kune_config inside Agent VM -> ~/aksdemo */
+                /* We have copied the kube_config inside Agent VM -> ~/aksdemo */
                 sh '''
                     sed -i "s/:latest/:$BUILD_NUMBER/g" manifests/deployment.yml
                     kubectl apply -f manifests/deployment.yml --kubeconfig ~/aksdemo
                     kubectl apply -f manifests/service.yml --kubeconfig ~/aksdemo
+                '''
+            }
+        }
+        
+        stage('Fetch k8s services') {
+            steps{
+                sh '''
+                    kubectl get svc --kubeconfig ~/aksdemo
                 '''
             }
         }
